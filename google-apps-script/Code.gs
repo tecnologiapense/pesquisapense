@@ -143,7 +143,7 @@ function buildDashboard_() {
   dash.getRange('A3').setValue('Total de respostas:');
   dash.getRange('B3').setFormula('=COUNTA(' + SHEET_RESPOSTAS + '!A2:A)').setFontWeight('bold');
   dash.getRange('A4').setValue('Última resposta:');
-  dash.getRange('B4').setFormula('=IFERROR(INDEX(' + SHEET_RESPOSTAS + '!A2:A;COUNTA(' + SHEET_RESPOSTAS + '!A2:A));"—")');
+  dash.getRange('B4').setFormula('=IF(COUNTA(' + SHEET_RESPOSTAS + '!A2:A)=0;"—";INDEX(' + SHEET_RESPOSTAS + '!A2:A;COUNTA(' + SHEET_RESPOSTAS + '!A2:A)))');
 
   var row = 7;
   var leadColCount = LEAD_FIELDS.length;
@@ -186,7 +186,10 @@ function buildDashboard_() {
       .build();
     dash.insertChart(chart);
 
-    row = Math.max(row + 1, tableStartRow + 10);
+    // O gráfico tem ~260px de altura (~13 linhas no zoom padrão); reserva
+    // espaço suficiente para ele nunca encostar no bloco da próxima pergunta,
+    // mesmo quando a pergunta tem poucas opções (table curta).
+    row = Math.max(row + 2, tableStartRow + 17);
   });
 
   dash.autoResizeColumns(1, 2);
