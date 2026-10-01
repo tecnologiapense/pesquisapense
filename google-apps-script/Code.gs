@@ -14,12 +14,11 @@
  * 5. Implantar -> Nova implantação -> tipo "Aplicativo da Web".
  *    Executar como: "Eu". Quem pode acessar: "Qualquer pessoa".
  *    Copie a URL do Web App gerada.
- * 6. No projeto Vercel, configure as env vars:
- *      SHEETS_WEBHOOK_URL = <URL do passo 5>
- *      SHEETS_WEBHOOK_TOKEN = <mesmo valor do SURVEY_TOKEN do passo 3>
+ * 6. Em index.html, preencha SHEETS_WEBHOOK_URL com a URL do passo 5 e
+ *    SHEETS_WEBHOOK_TOKEN com o mesmo valor do SURVEY_TOKEN do passo 3.
  *
- * Sempre que adicionar/remover uma pergunta, repita a mudança também em
- * src/lib/surveyFields.ts e rode `setup` de novo (ela recria o Dashboard
+ * Sempre que adicionar/remover uma pergunta, repita a mudança também no
+ * formulário em index.html e rode `setup` de novo (ela recria o Dashboard
  * do zero, mas preserva as linhas já salvas em "Respostas").
  */
 
@@ -234,7 +233,7 @@ function columnToLetter_(column) {
   return letter;
 }
 
-/** Endpoint chamado pelo backend (Vercel/Supabase) a cada novo envio do formulário. */
+/** Endpoint chamado direto pelo navegador (fetch em index.html) a cada novo envio do formulário. */
 function doPost(e) {
   try {
     var token = PropertiesService.getScriptProperties().getProperty('SURVEY_TOKEN');

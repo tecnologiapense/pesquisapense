@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pesquisa de Mercado | Pense Revalida</title>
+<meta name="description" content="Pesquisa rápida com médicos aprovados no Revalida INEP sobre a jornada de preparação para a prova.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Onest:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   Landing — Pense Revalida | Pesquisa de Mercado
+   Paleta, tipografia e layout herdados da LP pense-caveo.
+   Tudo escopado em .landing.
+   ========================================================= */
+* , *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+.landing{
+  --navy-950:#070F22;
+  --navy-900:#0A1428;
+  --navy-800:#18242F;
+  --ink:#1C3054;
+  --ink-2:#273F64;
+  --muted:#5D7291;
+  --muted-2:#7D93B4;
+  --muted-dark:#A9BDD8;
+  --text-light:#E6EDF8;
+  --bg-light:#F5F8FC;
+  --line:#E2E9F3;
+  --green-dark:#0E9F6E;
+  --accent-green:#60D676;
+  --accent-cyan:#00D4FF;
+  --grad:linear-gradient(135deg,#60D676 0%,#00D4FF 100%);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  color:var(--ink);
+  background:var(--bg-light);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+.landing img{max-width:100%;display:block}
+.landing a{text-decoration:none;color:inherit}
+.landing h1,.landing h2,.landing h3{font-family:'Onest','Inter',sans-serif;line-height:1.15;letter-spacing:-.02em}
+.landing .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+.landing section{position:relative}
+
+.landing .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-green)}
+.landing .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.landing .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Inter',sans-serif;font-weight:600;font-size:16px;padding:17px 30px;border-radius:14px;border:0;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;text-align:center}
+.landing .btn-primary{background:var(--grad);color:var(--navy-800);box-shadow:0 10px 30px -10px rgba(0,212,255,.55)}
+.landing .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 36px -12px rgba(0,212,255,.7);filter:brightness(1.04)}
+.landing .btn-primary:disabled{opacity:.7;cursor:wait;transform:none}
+.landing .btn svg{width:18px;height:18px;flex-shrink:0}
+
+.landing .topbar{position:absolute;top:0;left:0;right:0;z-index:5;padding:22px 0}
+.landing .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.landing .logos{display:flex;align-items:center;gap:18px}
+.landing .logo-pense{height:84px;margin:-30px 0 -30px -2px;width:auto;max-width:none}
+.landing .topbar .btn{padding:11px 20px;font-size:14px;border-radius:10px}
+
+.landing .hero{
+  background-color:var(--navy-900);
+  background-image:
+    radial-gradient(900px 520px at 78% 8%,rgba(96,214,118,.18),transparent 62%),
+    radial-gradient(760px 480px at 12% 96%,rgba(0,212,255,.14),transparent 66%);
+  color:var(--text-light);
+  padding:140px 0 100px;
+  overflow:hidden;
+}
+.landing .hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 75%);pointer-events:none}
+.landing .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.landing .hero-copy{text-align:left}
+.landing .badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 10px;border-radius:999px;background:rgba(96,214,118,.1);border:1px solid rgba(96,214,118,.28);color:#BFF3CB;font-size:13.5px;font-weight:600;margin-bottom:26px}
+.landing .badge .dot{width:22px;height:22px;border-radius:50%;background:var(--grad);display:grid;place-items:center;flex-shrink:0}
+.landing .badge .dot svg{width:12px;height:12px}
+.landing .hero h1{font-size:clamp(30px,3.6vw,46px);font-weight:700;color:#fff;margin-bottom:22px}
+.landing .hero p{font-size:16.5px;color:var(--muted-dark);margin:0 0 14px}
+.landing .hero p strong{color:#fff;font-weight:600}
+.landing .hero .callout{display:flex;gap:12px;align-items:flex-start;margin:22px 0 0;padding:16px 18px;border-radius:16px;background:rgba(96,214,118,.08);border:1px solid rgba(96,214,118,.22)}
+.landing .hero .callout .ic{flex-shrink:0;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--grad);color:var(--navy-800)}
+.landing .hero .callout .ic svg{width:18px;height:18px}
+.landing .hero .callout p{margin:0;font-size:14.5px;color:var(--muted-dark)}
+.landing .hero .callout p strong{color:#fff}
+.landing .hero .warning{margin:12px 0 0;font-size:13px;color:#F3C178;display:flex;gap:8px;align-items:flex-start}
+.landing .hero .warning svg{width:15px;height:15px;flex-shrink:0;margin-top:2px}
+.landing .hero .timing{display:flex;align-items:center;gap:8px;margin-top:18px;font-size:13.5px;color:var(--muted-2);font-weight:600}
+.landing .hero .timing svg{width:15px;height:15px}
+
+.landing .form-card{background:rgba(12,24,48,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:34px 30px;box-shadow:0 30px 80px -30px rgba(0,0,0,.6);position:relative}
+.landing .form-card h2{font-size:23px;color:#fff;margin-bottom:8px}
+.landing .form-card .sub{font-size:14.5px;color:var(--muted-dark);margin-bottom:24px}
+.landing .form-note{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;color:var(--muted-2);margin-top:14px}
+.landing .form-note svg{width:13px;height:13px;flex-shrink:0}
+
+.landing .field{margin:0 0 16px}
+.landing .field label{display:block;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--text-light);margin:0 0 7px}
+.landing .field .optional{color:var(--muted-2);font-weight:400}
+.landing .field input[type=text],
+.landing .field input[type=tel],
+.landing .field input[type=email],
+.landing .field textarea{
+  display:block;width:100%;box-sizing:border-box;font-family:'Inter',sans-serif;font-size:15px;line-height:1.4;
+  color:#fff;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;
+  padding:14px 16px;outline:none;transition:border-color .2s,background .2s,box-shadow .2s;resize:vertical;
+}
+.landing .field input::placeholder,
+.landing .field textarea::placeholder{color:#6F84A3;opacity:1}
+.landing .field input:focus,
+.landing .field textarea:focus{border-color:var(--accent-green);background:rgba(255,255,255,.08);box-shadow:0 0 0 4px rgba(96,214,118,.14)}
+.landing .field.has-error input,
+.landing .field.has-error textarea{border-color:#EF4444}
+.landing .field-error{font-size:12.5px;color:#FCA5A5;margin:6px 0 0;display:none}
+.landing .field.has-error .field-error{display:block}
+
+.landing .other-text{margin-top:10px;display:none}
+.landing .other-text.show{display:block}
+
+.landing .radio-group{display:flex;flex-direction:column;gap:8px}
+.landing .radio-option{display:flex;align-items:flex-start;gap:10px;cursor:pointer;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);transition:border-color .2s,background .2s}
+.landing .radio-option.checked{border-color:var(--accent-green);background:rgba(96,214,118,.1)}
+.landing .radio-option input{width:16px;height:16px;margin-top:2px;accent-color:var(--accent-green);flex-shrink:0}
+.landing .radio-option span{font-size:14.5px;color:var(--text-light)}
+
+.landing .submit-btn{width:100%;margin-top:6px}
+.landing .submit-btn .spinner{width:18px;height:18px;border-radius:50%;border:2px solid rgba(24,36,47,.35);border-top-color:var(--navy-800);animation:landing-spin 1s linear infinite;display:none}
+.landing .submit-btn.loading .spinner{display:inline-block}
+.landing .submit-btn.loading .btn-label{display:none}
+@keyframes landing-spin{to{transform:rotate(360deg)}}
+
+.landing .alert{border-radius:12px;padding:14px 16px;font-size:14.5px;line-height:1.5;border:1px solid;margin:0 0 16px;display:none;gap:10px;align-items:flex-start}
+.landing .alert.show{display:flex}
+.landing .alert svg{width:20px;height:20px;flex-shrink:0;margin-top:1px}
+.landing .alert.success{color:#BFF3CB;background:rgba(96,214,118,.12);border-color:rgba(96,214,118,.4)}
+.landing .alert.error{color:#FECACA;background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.45)}
+
+.landing .foot{background:var(--navy-950);color:var(--muted-2);padding:34px 0;font-size:13px}
+.landing .foot .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.landing .foot .logo-pense{height:64px;margin:-23px 0}
+
+@media (max-width:1024px){
+  .landing .hero .wrap{grid-template-columns:1fr;gap:44px}
+}
+@media (max-width:720px){
+  .landing .wrap{padding:0 16px}
+  .landing .topbar .btn{display:none}
+  .landing .topbar .logo-pense{height:70px;margin:-25px 0}
+  .landing .hero{padding:120px 0 72px}
+  .landing .hero p{font-size:16.5px}
+  .landing .form-card{padding:28px 20px}
+  .landing .btn{width:100%;padding:16px 22px}
+  .landing .foot .wrap{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="landing">
+
+  <header class="topbar">
+    <div class="wrap">
+      <div class="logos">
+        <img class="logo-pense" src="https://lp.penserevalida.com/wp-content/uploads/2026/08/logo-pense-dark_1.png" alt="Pense Revalida" width="1601" height="801">
+      </div>
+      <a href="#pesquisa" class="btn btn-primary">Responder pesquisa</a>
+    </div>
+  </header>
+
+  <section class="hero" id="pesquisa">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="badge">
+          <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#18242F" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>
+          Exclusivo para aprovados no Revalida INEP
+        </span>
+
+        <h1>Parabéns pela aprovação no Revalida INEP! Queremos entender a sua <span class="grad-text">jornada até aqui.</span></h1>
+
+        <p>Aqui é do <strong>Pense Revalida</strong>, a maior comunidade de revalidação do Brasil e pioneira no método de treinamento prático para a 2ª fase.</p>
+        <p>Estamos fazendo uma pesquisa rápida com médicos formados no exterior para entender por que alguns profissionais não chegaram a usar nossa plataforma na 2ª fase, ou tiveram pouco contato com ela.</p>
+
+        <div class="callout">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v13"/><path d="m7 9 5-7 5 7"/></svg></span>
+          <p><strong>Respondendo, você desbloqueia</strong> as mesmas condições especiais dos alunos Pense com a Caveo, nossa parceira que já atende mais de 20 mil médicos — entre elas, a abertura do seu CNPJ 100% gratuita (economia de mais de R$ 2 mil) e outros benefícios para o início da sua carreira.</p>
+        </div>
+
+        <p class="warning">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Atenção: os bônus só são ativados ao contratar o Plano de Carreira da Caveo.
+        </p>
+
+        <p class="timing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Leva só alguns minutos
+        </p>
+      </div>
+
+      <div class="form-card">
+        <h2>Pesquisa de Mercado</h2>
+        <p class="sub">Suas respostas são muito importantes para entendermos hábitos de estudo, critérios de escolha e percepções sobre as empresas que atuam nesse mercado. A pesquisa é rápida e leva aproximadamente 3 minutos.</p>
+
+        <div id="alert-success" class="alert success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+          <span>Recebemos sua resposta! Nosso time vai entrar em contato pelo WhatsApp informado com os próximos passos dos seus benefícios exclusivos.</span>
+        </div>
+        <div id="alert-error" class="alert error">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span id="alert-error-text">Verifique os campos destacados e tente novamente.</span>
+        </div>
+
+        <form id="survey-form" novalidate>
+
+          <div class="field" data-field="nome">
+            <label>Nome completo</label>
+            <input type="text" name="nome" placeholder="Digite seu nome completo" required>
+            <p class="field-error">Campo obrigatório.</p>
+          </div>
+
+          <div class="field" data-field="whatsapp">
+            <label>WhatsApp</label>
+            <input type="tel" name="whatsapp" placeholder="(DDD) 00000-0000" required>
+            <p class="field-error">Campo obrigatório.</p>
+          </div>
+
+          <div class="field" data-field="email">
+            <label>E-mail</label>
+            <input type="email" name="email" placeholder="seuemail@exemplo.com" required>
+            <p class="field-error">Campo obrigatório.</p>
+          </div>
+
+          <!-- Q1 -->
+          <div class="field" data-field="tentativas">
+            <label>1. Quantas vezes você realizou a prova do Revalida até conseguir a aprovação?</label>
+            <div class="radio-group" data-type="single" data-required="true">
+              <label class="radio-option"><input type="radio" name="tentativas" value="1ª tentativa"><span>1ª tentativa</span></label>
+              <label class="radio-option"><input type="radio" name="tentativas" value="2ª tentativa"><span>2ª tentativa</span></label>
+              <label class="radio-option"><input type="radio" name="tentativas" value="3ª tentativa"><span>3ª tentativa</span></label>
+              <label class="radio-option"><input type="radio" name="tentativas" value="4ª tentativa"><span>4ª tentativa</span></label>
+              <label class="radio-option"><input type="radio" name="tentativas" value="5 ou mais tentativas"><span>5 ou mais tentativas</span></label>
+            </div>
+            <p class="field-error">Campo obrigatório.</p>
+          </div>
+
+          <!-- Q2 -->
+          <div class="field" data-field="empresas_conhecidas">
+            <label>2. Antes de iniciar seus estudos, quais empresas/cursos de preparação para revalidação você conhecia?</label>
+            <div class="radio-group" data-type="multi" data-required="true">
+              <label class="radio-option"><input type="checkbox" name="empresas_conhecidas" value="Pense Revalida"><span>Pense Revalida</span></label>
+              <label class="radio-option"><input type="checkbox" name="empresas_conhecidas" value="Medway"><span>Medway</span></label>
+              <label class="radio-option"><input type="checkbox" name="empresas_conhecidas" value="MedCof"><span>MedCof</span></label>
+              <label class="radio-option"><input type="checkbox" name="empresas_conhecidas" value="Medcel"><span>Medcel</span></label>
+              <label class="radio-option"><input type="checkbox" name="empresas_conhecidas" value="Estratégia MED"><span>Estratégia MED</span></label>
+              <label class="radio-option"><input type="checkbox" name="empresas_conhecidas" value="Cursinhos presenciais"><span>Cursinhos presenciais</span></label>
+              <label class="radio-option"><input type="checkbox" name="empresas_conhecidas" value="Professores/autônomos"><span>Professores/autônomos</span></label>
+              <label class="radio-option"><input type="checkbox" name="empresas_conhecidas" value="Não conhecia nenhuma empresa específica"><span>Não conhecia nenhuma empresa específica</span></label>
+              <label class="radio-option"><input type="checkbox" name="empresas_conhecidas" value="Outro" data-other="true"><span>Outro</span></label>
+            </div>
+            <input type="text" class="other-text" data-other-for="empresas_conhecidas" placeholder="Qual?">
+            <p class="field-error">Campo obrigatório.</p>
+          </div>
+
+          <!-- Q3 -->
+          <div class="field" data-field="conhecia_pense">
+            <label>3. Você conhecia o Pense Revalida antes de escolher onde estudar?</label>
+            <div class="radio-group" data-type="single" data-required="true">
+              <label class="radio-option"><input type="radio" name="conhecia_pense" value="Sim, conhecia bastante"><span>Sim, conhecia bastante</span></label>
+              <label class="radio-option"><input type="radio" name="conhecia_pense" value="Sim, mas conhecia pouco"><span>Sim, mas conhecia pouco</span></label>
+              <label class="radio-option"><input type="radio" name="conhecia_pense" value="Já tinha ouvido falar, mas não conhecia o suficiente"><span>Já tinha ouvido falar, mas não conhecia o suficiente</span></label>
+              <label class="radio-option"><input type="radio" name="conhecia_pense" value="Não conhecia"><span>Não conhecia</span></label>
+            </div>
+            <p class="field-error">Campo obrigatório.</p>
+          </div>
+
+          <!-- Q4 -->
+          <div class="field" data-field="onde_preparou">
+            <label>4. Onde você realizou sua preparação principal para a prova?</label>
+            <div class="radio-group" data-type="single" data-required="true">
+              <label class="radio-option"><input type="radio" name="onde_preparou" value="Curso online especializado em revalidação"><span>Curso online especializado em revalidação</span></label>
+              <label class="radio-option"><input type="radio" name="onde_preparou" value="Curso presencial"><span>Curso presencial</span></label>
+              <label class="radio-option"><input type="radio" name="onde_preparou" value="Mais de um curso/plataforma"><span>Mais de um curso/plataforma</span></label>
+              <label class="radio-option"><input type="radio" name="onde_preparou" value="Estudei sozinho(a)"><span>Estudei sozinho(a)</span></label>
+              <label class="radio-option"><input type="radio" name="onde_preparou" value="Grupo de estudos"><span>Grupo de estudos</span></label>
+              <label class="radio-option"><input type="radio" name="onde_preparou" value="Aulas particulares/professores"><span>Aulas particulares/professores</span></label>
+              <label class="radio-option"><input type="radio" name="onde_preparou" value="Material apostilado/PDFs"><span>Material apostilado/PDFs</span></label>
+              <label class="radio-option"><input type="radio" name="onde_preparou" value="Outro" data-other="true"><span>Outro</span></label>
+            </div>
+            <input type="text" class="other-text" data-other-for="onde_preparou" placeholder="Qual?">
+            <p class="field-error">Campo obrigatório.</p>
+          </div>
+
+          <!-- Q5 -->
+          <div class="field" data-field="empresa_escolhida">
+            <label>5. Qual empresa ou solução você escolheu para se preparar?</label>
+            <input type="text" name="empresa_escolhida" placeholder="Digite o nome da empresa/solução" required>
+            <p class="field-error">Campo obrigatório.</p>
+          </div>
+
+          <!-- Q6 -->
+          <div class="field" data-field="motivo_escolha">
+            <label>6. Qual foi o principal motivo que levou você a escolher essa empresa/solução?</label>
+            <div class="radio-group" data-type="single" data-required="true">
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Preço"><span>Preço</span></label>
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Qualidade do material"><span>Qualidade do material</span></label>
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Metodologia de ensino"><span>Metodologia de ensino</span></label>
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Professores"><span>Professores</span></label>
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Aprovação/resultados divulgados"><span>Aprovação/resultados divulgados</span></label>
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Indicação de amigos/colegas"><span>Indicação de amigos/colegas</span></label>
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Reputação da empresa"><span>Reputação da empresa</span></label>
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Simulados e questões"><span>Simulados e questões</span></label>
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Plataforma/tecnologia"><span>Plataforma/tecnologia</span></label>
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Cronograma de estudos"><span>Cronograma de estudos</span></label>
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Suporte/acompanhamento"><span>Suporte/acompanhamento</span></label>
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Conteúdo gratuito nas redes sociais"><span>Conteúdo gratuito nas redes sociais</span></label>
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Condições de pagamento"><span>Condições de pagamento</span></label>
+              <label class="radio-option"><input type="radio" name="motivo_escolha" value="Outro" data-other="true"><span>Outro</span></label>
+            </div>
+            <input type="text" class="other-text" data-other-for="motivo_escolha" placeholder="Qual?">
+            <p class="field-error">Campo obrigatório.</p>
+          </div>
+
+          <!-- Q7 -->
+          <div class="field" data-field="considerou_pense">
+            <label>7. Antes de escolher onde estudar, você chegou a considerar o Pense Revalida?</label>
+            <div class="radio-group" data-type="single" data-required="true">
+              <label class="radio-option"><input type="radio" name="considerou_pense" value="Sim, foi uma das minhas principais opções"><span>Sim, foi uma das minhas principais opções</span></label>
+              <label class="radio-option"><input type="radio" name="considerou_pense" value="Sim, mas não cheguei a considerar seriamente"><span>Sim, mas não cheguei a considerar seriamente</span></label>
+              <label class="radio-option"><input type="radio" name="considerou_pense" value="Conhecia, mas não considerei"><span>Conhecia, mas não considerei</span></label>
+              <label class="radio-option"><input type="radio" name="considerou_pense" value="Não conhecia na época"><span>Não conhecia na época</span></label>
+            </div>
+            <p class="field-error">Campo obrigatório.</p>
+          </div>
+
+          <!-- Q8 -->
+          <div class="field" data-field="motivo_outra_escolha">
+            <label>8. Se você considerou o Pense Revalida, o que fez você escolher outra opção? <span class="optional">(opcional)</span></label>
+            <div class="radio-group" data-type="multi">
+              <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Preço"><span>Preço</span></label>
+              <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Não me identifiquei com a metodologia"><span>Não me identifiquei com a metodologia</span></label>
+              <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Não encontrei informações suficientes sobre o curso"><span>Não encontrei informações suficientes sobre o curso</span></label>
+              <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Preferi outra empresa pela reputação"><span>Preferi outra empresa pela reputação</span></label>
+              <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Preferi outra empresa pelos resultados/aprovações"><span>Preferi outra empresa pelos resultados/aprovações</span></label>
+              <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Preferi outros professores"><span>Preferi outros professores</span></label>
+              <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Preferi o material de outra empresa"><span>Preferi o material de outra empresa</span></label>
+              <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Preferi outra plataforma"><span>Preferi outra plataforma</span></label>
+              <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Recebi indicação de outra empresa"><span>Recebi indicação de outra empresa</span></label>
+              <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="A outra empresa oferecia algo que o Pense Revalida não oferecia"><span>A outra empresa oferecia algo que o Pense Revalida não oferecia</span></label>
+              <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Não percebi diferença relevante entre as opções"><span>Não percebi diferença relevante entre as opções</span></label>
+              <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Não considerei o Pense Revalida"><span>Não considerei o Pense Revalida</span></label>
+              <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Outro" data-other="true"><span>Outro</span></label>
+            </div>
+            <input type="text" class="other-text" data-other-for="motivo_outra_escolha" placeholder="Qual?">
+          </div>
+
+          <!-- Q9 -->
+          <div class="field" data-field="fatores_importantes">
+            <label>9. Quais são os 3 fatores mais importantes para você ao escolher uma preparação para a revalidação? (escolha até 3)</label>
+            <div class="radio-group" data-type="multi" data-required="true" data-max="3">
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Preço"><span>Preço</span></label>
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Professores"><span>Professores</span></label>
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Metodologia"><span>Metodologia</span></label>
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Material didático"><span>Material didático</span></label>
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Banco de questões"><span>Banco de questões</span></label>
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Simulados"><span>Simulados</span></label>
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Resultados de aprovação"><span>Resultados de aprovação</span></label>
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Acompanhamento individual"><span>Acompanhamento individual</span></label>
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Suporte ao aluno"><span>Suporte ao aluno</span></label>
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Flexibilidade para estudar"><span>Flexibilidade para estudar</span></label>
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Reputação da empresa"><span>Reputação da empresa</span></label>
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Comunidade/grupo de alunos"><span>Comunidade/grupo de alunos</span></label>
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Conteúdo gratuito nas redes sociais"><span>Conteúdo gratuito nas redes sociais</span></label>
+              <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Outro" data-other="true"><span>Outro</span></label>
+            </div>
+            <input type="text" class="other-text" data-other-for="fatores_importantes" placeholder="Qual?">
+            <p class="field-error">Escolha até 3 opções.</p>
+          </div>
+
+          <!-- Q10 -->
+          <div class="field" data-field="sugestao_melhoria">
+            <label>10. Se você pudesse mudar ou melhorar alguma coisa no Pense Revalida para torná-lo mais atrativo para você, o que seria? <span class="optional">(opcional)</span></label>
+            <textarea name="sugestao_melhoria" rows="4" placeholder="Fique à vontade para escrever sua sugestão..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-btn" id="submit-btn">
+            <span class="spinner"></span>
+            <span class="btn-label">Enviar minhas respostas</span>
+          </button>
+          <p class="form-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Seus dados estão seguros e serão usados apenas para esta pesquisa.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="logos">
+        <img class="logo-pense" src="https://lp.penserevalida.com/wp-content/uploads/2026/08/logo-pense-dark_1.png" alt="Pense Revalida" width="1601" height="801">
+      </div>
+      <span>© 2026 Pense Revalida. Todos os direitos reservados.</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  // Config do Web App do Apps Script (google-apps-script/Code.gs)
+  var SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwdElwnP9DXMgZiU3siZjgv2xKKBdOxoVCKf2XOOCf_07uDbKXXbiRj6qMzJ7wRnj7Ytw/exec';
+  var SHEETS_WEBHOOK_TOKEN = 'ffd695befa628f450bca07919513610e14e471ac';
+
+  // Ordem das perguntas — precisa casar com QUESTIONS em google-apps-script/Code.gs
+  var QUESTION_KEYS = [
+    'tentativas', 'empresas_conhecidas', 'conhecia_pense', 'onde_preparou',
+    'empresa_escolhida', 'motivo_escolha', 'considerou_pense',
+    'motivo_outra_escolha', 'fatores_importantes', 'sugestao_melhoria',
+  ];
+
+  var form = document.getElementById('survey-form');
+  var submitBtn = document.getElementById('submit-btn');
+  var alertSuccess = document.getElementById('alert-success');
+  var alertError = document.getElementById('alert-error');
+  var alertErrorText = document.getElementById('alert-error-text');
+
+  // --- "Outro: ___" condicional (radio e checkbox) ---
+  document.querySelectorAll('.radio-group').forEach(function(group){
+    group.querySelectorAll('input').forEach(function(input){
+      input.addEventListener('change', function(){ onGroupChange(group); });
+    });
+  });
+
+  function onGroupChange(group){
+    var field = group.closest('.field');
+    field.classList.remove('has-error');
+
+    var name = group.querySelector('input').name;
+    var otherInput = field.querySelector('.other-text[data-other-for="' + name + '"]');
+    var otherChecked = Array.from(group.querySelectorAll('input')).some(function(i){ return i.dataset.other && i.checked; });
+    if (otherInput) otherInput.classList.toggle('show', otherChecked);
+
+    group.querySelectorAll('.radio-option').forEach(function(opt){
+      var input = opt.querySelector('input');
+      opt.classList.toggle('checked', input.checked);
+    });
+
+    if (group.dataset.type === 'multi' && group.dataset.max) {
+      var max = parseInt(group.dataset.max, 10);
+      var checked = group.querySelectorAll('input:checked').length;
+      group.querySelectorAll('input:not(:checked)').forEach(function(i){ i.disabled = checked >= max; });
+    }
+  }
+
+  function groupValues(group){
+    return Array.from(group.querySelectorAll('input:checked')).map(function(i){ return i.value; });
+  }
+
+  function resolveOther(field, values){
+    var otherInput = field.querySelector('.other-text');
+    var otherText = otherInput ? otherInput.value.trim() : '';
+    return values.map(function(v){
+      if (v !== 'Outro') return v;
+      return otherText ? ('Outro: ' + otherText) : 'Outro';
+    });
+  }
+
+  function clearErrors(){
+    form.querySelectorAll('.field').forEach(function(f){ f.classList.remove('has-error'); });
+    alertError.classList.remove('show');
+  }
+
+  function validate(){
+    var ok = true;
+    form.querySelectorAll('.field').forEach(function(field){
+      var group = field.querySelector('.radio-group');
+      var textInput = field.querySelector('input[type=text]:not(.other-text), input[type=tel], input[type=email]');
+      var textarea = field.querySelector('textarea');
+
+      if (group) {
+        var required = group.dataset.required === 'true';
+        var values = groupValues(group);
+        var max = group.dataset.max ? parseInt(group.dataset.max, 10) : null;
+        if (required && values.length === 0) { field.classList.add('has-error'); ok = false; }
+        else if (max && values.length > max) { field.classList.add('has-error'); ok = false; }
+      } else if (textInput && textInput.required) {
+        if (!textInput.value.trim()) { field.classList.add('has-error'); ok = false; }
+      }
+      // textarea e campos opcionais: sem validação obrigatória
+    });
+    return ok;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    clearErrors();
+    alertSuccess.classList.remove('show');
+
+    if (!validate()) {
+      alertErrorText.textContent = 'Verifique os campos destacados e tente novamente.';
+      alertError.classList.add('show');
+      var firstError = form.querySelector('.field.has-error');
+      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    var fd = new FormData(form);
+    var nome = fd.get('nome');
+    var whatsapp = fd.get('whatsapp');
+    var email = fd.get('email');
+
+    var answers = {};
+    QUESTION_KEYS.forEach(function(key){
+      var field = form.querySelector('.field[data-field="' + key + '"]');
+      var group = field.querySelector('.radio-group');
+      if (group) {
+        var values = resolveOther(field, groupValues(group));
+        answers[key] = group.dataset.type === 'multi' ? values.join('; ') : (values[0] || '');
+      } else {
+        var input = field.querySelector('input, textarea');
+        answers[key] = input ? input.value.trim() : '';
+      }
+    });
+
+    var values = [
+      new Date().toISOString(), nome, whatsapp, email,
+      answers.tentativas, answers.empresas_conhecidas, answers.conhecia_pense,
+      answers.onde_preparou, answers.empresa_escolhida, answers.motivo_escolha,
+      answers.considerou_pense, answers.motivo_outra_escolha,
+      answers.fatores_importantes, answers.sugestao_melhoria,
+    ];
+
+    submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+
+    fetch(SHEETS_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ token: SHEETS_WEBHOOK_TOKEN, values: values }),
+    })
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        if (data && data.ok) {
+          form.style.display = 'none';
+          alertSuccess.classList.add('show');
+          alertSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          alertErrorText.textContent = 'Não foi possível salvar sua resposta agora. Tente novamente em instantes.';
+          alertError.classList.add('show');
+        }
+      })
+      .catch(function(){
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        alertErrorText.textContent = 'Não foi possível enviar. Verifique sua conexão e tente novamente.';
+        alertError.classList.add('show');
+      });
+  });
+
+  // Scroll suave para o formulário
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
