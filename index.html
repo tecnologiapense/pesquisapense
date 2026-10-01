@@ -60,6 +60,9 @@ html, body { margin: 0; padding: 0; }
 .landing .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .landing .logos{display:flex;align-items:center;gap:18px}
 .landing .logo-pense{height:84px;margin:-30px 0 -30px -2px;width:auto;max-width:none}
+.landing .logos .x{color:var(--muted-2);font-size:15px;font-weight:700;text-transform:uppercase}
+.landing .logo-caveo{height:30px;width:auto;max-width:none;filter:brightness(3.4) saturate(1.3)}
+.landing .foot .logo-caveo{height:23px}
 
 .landing .hero{
   background-color:var(--navy-900);
@@ -79,11 +82,12 @@ html, body { margin: 0; padding: 0; }
 .landing .hero h1{font-size:clamp(30px,3.6vw,46px);font-weight:700;color:#fff;margin-bottom:22px}
 .landing .hero p{font-size:16.5px;color:var(--muted-dark);margin:0 0 14px}
 .landing .hero p strong{color:#fff;font-weight:600}
-.landing .hero .callout{display:flex;gap:12px;align-items:flex-start;margin:22px 0 0;padding:16px 18px;border-radius:16px;background:rgba(96,214,118,.08);border:1px solid rgba(96,214,118,.22)}
-.landing .hero .callout .ic{flex-shrink:0;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--grad);color:var(--navy-800)}
-.landing .hero .callout .ic svg{width:18px;height:18px}
-.landing .hero .callout p{margin:0;font-size:14.5px;color:var(--muted-dark)}
-.landing .hero .callout p strong{color:#fff}
+.landing .hero .callout{display:flex;gap:16px;align-items:center;margin:22px 0 0;padding:18px 20px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
+.landing .hero .callout .ic{flex-shrink:0;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--grad);color:var(--navy-800)}
+.landing .hero .callout .ic svg{width:26px;height:26px}
+.landing .hero .callout .eyebrow-sm{display:block;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent-green);margin-bottom:5px}
+.landing .hero .callout .title{margin:0;font-size:15.5px;font-weight:700;color:#fff}
+.landing .hero .callout .desc{margin:3px 0 0;font-size:14px;color:var(--muted-dark)}
 .landing .hero .warning{margin:12px 0 0;font-size:13px;color:#F3C178;display:flex;gap:8px;align-items:flex-start}
 .landing .hero .warning svg{width:15px;height:15px;flex-shrink:0;margin-top:2px}
 .landing .hero .timing{display:flex;align-items:center;gap:8px;margin-top:18px;font-size:13.5px;color:var(--muted-2);font-weight:600}
@@ -113,6 +117,8 @@ html, body { margin: 0; padding: 0; }
 
 .landing .field{margin:0 0 16px}
 .landing .field label{display:block;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--text-light);margin:0 0 7px}
+.landing .multi-hint{display:inline-flex;align-items:center;gap:6px;margin:0 0 12px;font-size:12px;font-weight:600;color:var(--accent-cyan);background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.25);padding:4px 11px;border-radius:999px}
+.landing .multi-hint svg{width:13px;height:13px;flex-shrink:0}
 .landing .field .optional{color:var(--muted-2);font-weight:400}
 .landing .field input[type=text],
 .landing .field input[type=tel],
@@ -180,6 +186,8 @@ html, body { margin: 0; padding: 0; }
     <div class="wrap">
       <div class="logos">
         <img class="logo-pense" src="https://lp.penserevalida.com/wp-content/uploads/2026/08/logo-pense-dark_1.png" alt="Pense Revalida" width="1601" height="801">
+        <span class="x">E</span>
+        <img class="logo-caveo" src="https://lp.penserevalida.com/wp-content/uploads/2026/09/0e89fdb35c8754a6ce7a909f5adfe455c1b1fca8.png" alt="Caveo" width="1829" height="618">
       </div>
     </div>
   </header>
@@ -198,8 +206,20 @@ html, body { margin: 0; padding: 0; }
         <p>Estamos fazendo uma pesquisa rápida com médicos formados no exterior para entender por que alguns profissionais não chegaram a usar nossa plataforma na 2ª fase, ou tiveram pouco contato com ela.</p>
 
         <div class="callout">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v13"/><path d="m7 9 5-7 5 7"/></svg></span>
-          <p><strong>Respondendo, você desbloqueia</strong> as mesmas condições especiais dos alunos Pense com a Caveo, nossa parceira que já atende mais de 20 mil médicos — entre elas, a abertura do seu CNPJ 100% gratuita (economia de mais de R$ 2 mil) e outros benefícios para o início da sua carreira.</p>
+          <span class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="8" width="18" height="4" rx="1"/>
+              <path d="M12 8v13"/>
+              <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/>
+              <path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8Z"/>
+              <path d="M16.5 8a2.5 2.5 0 0 0 0-5C13 3 12 8 12 8Z"/>
+            </svg>
+          </span>
+          <div class="callout-text">
+            <span class="eyebrow-sm">Plano de Carreira Caveo</span>
+            <p class="title">Bônus exclusivos fechando com a Caveo</p>
+            <p class="desc">Abertura de PJ, Whitebook, Wellhub e mais</p>
+          </div>
         </div>
 
         <p class="warning">
@@ -226,15 +246,15 @@ html, body { margin: 0; padding: 0; }
 
         <div class="progress">
           <div class="progress-label">
-            <span id="progress-text">Antes de começar</span>
-            <span id="progress-count"></span>
+            <span id="progress-text">Pergunta 1 de 10</span>
+            <span id="progress-count">10%</span>
           </div>
-          <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+          <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
         </div>
 
         <div id="alert-success" class="alert success">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
-          <span>Recebemos sua resposta! Nosso time vai entrar em contato pelo WhatsApp informado com os próximos passos dos seus benefícios exclusivos.</span>
+          <span>Recebemos sua resposta! Obrigado por participar — isso nos ajuda muito a entender melhor essa jornada.</span>
         </div>
         <div id="alert-error" class="alert error">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -243,33 +263,8 @@ html, body { margin: 0; padding: 0; }
 
         <form id="survey-form" novalidate>
 
-          <!-- Passo 0: contato (não conta nas 10 perguntas) -->
-          <div class="step active" data-step="0">
-            <div class="field" data-field="nome">
-              <label>Nome completo</label>
-              <input type="text" name="nome" placeholder="Digite seu nome completo" required>
-              <p class="field-error">Campo obrigatório.</p>
-            </div>
-
-            <div class="field" data-field="whatsapp">
-              <label>WhatsApp</label>
-              <input type="tel" name="whatsapp" placeholder="(DDD) 00000-0000" required>
-              <p class="field-error">Campo obrigatório.</p>
-            </div>
-
-            <div class="field" data-field="email">
-              <label>E-mail</label>
-              <input type="email" name="email" placeholder="seuemail@exemplo.com" required>
-              <p class="field-error">Campo obrigatório.</p>
-            </div>
-
-            <div class="step-actions">
-              <button type="button" class="btn btn-primary next-btn">Continuar</button>
-            </div>
-          </div>
-
           <!-- Pergunta 1 -->
-          <div class="step" data-step="1" data-advance="auto">
+          <div class="step active" data-step="1">
             <div class="field" data-field="tentativas">
               <label>1. Quantas vezes você realizou a prova do Revalida até conseguir a aprovação?</label>
               <div class="radio-group" data-type="single" data-required="true">
@@ -282,7 +277,7 @@ html, body { margin: 0; padding: 0; }
               <p class="field-error">Campo obrigatório.</p>
             </div>
             <div class="step-actions">
-              <button type="button" class="btn btn-ghost back-btn">Voltar</button>
+              <button type="button" class="btn btn-primary next-btn">Avançar</button>
             </div>
           </div>
 
@@ -290,6 +285,7 @@ html, body { margin: 0; padding: 0; }
           <div class="step" data-step="2">
             <div class="field" data-field="empresas_conhecidas">
               <label>2. Antes de iniciar seus estudos, quais empresas/cursos de preparação para revalidação você conhecia?</label>
+              <span class="multi-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Pode marcar mais de uma alternativa</span>
               <div class="radio-group" data-type="multi" data-required="true">
                 <label class="radio-option"><input type="checkbox" name="empresas_conhecidas" value="Pense Revalida"><span>Pense Revalida</span></label>
                 <label class="radio-option"><input type="checkbox" name="empresas_conhecidas" value="Medway"><span>Medway</span></label>
@@ -311,7 +307,7 @@ html, body { margin: 0; padding: 0; }
           </div>
 
           <!-- Pergunta 3 -->
-          <div class="step" data-step="3" data-advance="auto">
+          <div class="step" data-step="3">
             <div class="field" data-field="conhecia_pense">
               <label>3. Você conhecia o Pense Revalida antes de escolher onde estudar?</label>
               <div class="radio-group" data-type="single" data-required="true">
@@ -324,6 +320,7 @@ html, body { margin: 0; padding: 0; }
             </div>
             <div class="step-actions">
               <button type="button" class="btn btn-ghost back-btn">Voltar</button>
+              <button type="button" class="btn btn-primary next-btn">Avançar</button>
             </div>
           </div>
 
@@ -331,15 +328,16 @@ html, body { margin: 0; padding: 0; }
           <div class="step" data-step="4">
             <div class="field" data-field="onde_preparou">
               <label>4. Onde você realizou sua preparação principal para a prova?</label>
-              <div class="radio-group" data-type="single" data-required="true">
-                <label class="radio-option"><input type="radio" name="onde_preparou" value="Curso online especializado em revalidação"><span>Curso online especializado em revalidação</span></label>
-                <label class="radio-option"><input type="radio" name="onde_preparou" value="Curso presencial"><span>Curso presencial</span></label>
-                <label class="radio-option"><input type="radio" name="onde_preparou" value="Mais de um curso/plataforma"><span>Mais de um curso/plataforma</span></label>
-                <label class="radio-option"><input type="radio" name="onde_preparou" value="Estudei sozinho(a)"><span>Estudei sozinho(a)</span></label>
-                <label class="radio-option"><input type="radio" name="onde_preparou" value="Grupo de estudos"><span>Grupo de estudos</span></label>
-                <label class="radio-option"><input type="radio" name="onde_preparou" value="Aulas particulares/professores"><span>Aulas particulares/professores</span></label>
-                <label class="radio-option"><input type="radio" name="onde_preparou" value="Material apostilado/PDFs"><span>Material apostilado/PDFs</span></label>
-                <label class="radio-option"><input type="radio" name="onde_preparou" value="Outro" data-other="true"><span>Outro</span></label>
+              <span class="multi-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Pode marcar mais de uma alternativa</span>
+              <div class="radio-group" data-type="multi" data-required="true">
+                <label class="radio-option"><input type="checkbox" name="onde_preparou" value="Curso online especializado em revalidação"><span>Curso online especializado em revalidação</span></label>
+                <label class="radio-option"><input type="checkbox" name="onde_preparou" value="Curso presencial"><span>Curso presencial</span></label>
+                <label class="radio-option"><input type="checkbox" name="onde_preparou" value="Mais de um curso/plataforma"><span>Mais de um curso/plataforma</span></label>
+                <label class="radio-option"><input type="checkbox" name="onde_preparou" value="Estudei sozinho(a)"><span>Estudei sozinho(a)</span></label>
+                <label class="radio-option"><input type="checkbox" name="onde_preparou" value="Grupo de estudos"><span>Grupo de estudos</span></label>
+                <label class="radio-option"><input type="checkbox" name="onde_preparou" value="Aulas particulares/professores"><span>Aulas particulares/professores</span></label>
+                <label class="radio-option"><input type="checkbox" name="onde_preparou" value="Material apostilado/PDFs"><span>Material apostilado/PDFs</span></label>
+                <label class="radio-option"><input type="checkbox" name="onde_preparou" value="Outro" data-other="true"><span>Outro</span></label>
               </div>
               <input type="text" class="other-text" data-other-for="onde_preparou" placeholder="Qual?">
               <p class="field-error">Campo obrigatório.</p>
@@ -367,21 +365,22 @@ html, body { margin: 0; padding: 0; }
           <div class="step" data-step="6">
             <div class="field" data-field="motivo_escolha">
               <label>6. Qual foi o principal motivo que levou você a escolher essa empresa/solução?</label>
-              <div class="radio-group" data-type="single" data-required="true">
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Preço"><span>Preço</span></label>
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Qualidade do material"><span>Qualidade do material</span></label>
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Metodologia de ensino"><span>Metodologia de ensino</span></label>
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Professores"><span>Professores</span></label>
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Aprovação/resultados divulgados"><span>Aprovação/resultados divulgados</span></label>
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Indicação de amigos/colegas"><span>Indicação de amigos/colegas</span></label>
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Reputação da empresa"><span>Reputação da empresa</span></label>
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Simulados e questões"><span>Simulados e questões</span></label>
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Plataforma/tecnologia"><span>Plataforma/tecnologia</span></label>
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Cronograma de estudos"><span>Cronograma de estudos</span></label>
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Suporte/acompanhamento"><span>Suporte/acompanhamento</span></label>
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Conteúdo gratuito nas redes sociais"><span>Conteúdo gratuito nas redes sociais</span></label>
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Condições de pagamento"><span>Condições de pagamento</span></label>
-                <label class="radio-option"><input type="radio" name="motivo_escolha" value="Outro" data-other="true"><span>Outro</span></label>
+              <span class="multi-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Pode marcar mais de uma alternativa</span>
+              <div class="radio-group" data-type="multi" data-required="true">
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Preço"><span>Preço</span></label>
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Qualidade do material"><span>Qualidade do material</span></label>
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Metodologia de ensino"><span>Metodologia de ensino</span></label>
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Professores"><span>Professores</span></label>
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Aprovação/resultados divulgados"><span>Aprovação/resultados divulgados</span></label>
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Indicação de amigos/colegas"><span>Indicação de amigos/colegas</span></label>
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Reputação da empresa"><span>Reputação da empresa</span></label>
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Simulados e questões"><span>Simulados e questões</span></label>
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Plataforma/tecnologia"><span>Plataforma/tecnologia</span></label>
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Cronograma de estudos"><span>Cronograma de estudos</span></label>
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Suporte/acompanhamento"><span>Suporte/acompanhamento</span></label>
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Conteúdo gratuito nas redes sociais"><span>Conteúdo gratuito nas redes sociais</span></label>
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Condições de pagamento"><span>Condições de pagamento</span></label>
+                <label class="radio-option"><input type="checkbox" name="motivo_escolha" value="Outro" data-other="true"><span>Outro</span></label>
               </div>
               <input type="text" class="other-text" data-other-for="motivo_escolha" placeholder="Qual?">
               <p class="field-error">Campo obrigatório.</p>
@@ -393,7 +392,7 @@ html, body { margin: 0; padding: 0; }
           </div>
 
           <!-- Pergunta 7 -->
-          <div class="step" data-step="7" data-advance="auto">
+          <div class="step" data-step="7">
             <div class="field" data-field="considerou_pense">
               <label>7. Antes de escolher onde estudar, você chegou a considerar o Pense Revalida?</label>
               <div class="radio-group" data-type="single" data-required="true">
@@ -406,6 +405,7 @@ html, body { margin: 0; padding: 0; }
             </div>
             <div class="step-actions">
               <button type="button" class="btn btn-ghost back-btn">Voltar</button>
+              <button type="button" class="btn btn-primary next-btn">Avançar</button>
             </div>
           </div>
 
@@ -413,6 +413,7 @@ html, body { margin: 0; padding: 0; }
           <div class="step" data-step="8">
             <div class="field" data-field="motivo_outra_escolha">
               <label>8. Se você considerou o Pense Revalida, o que fez você escolher outra opção? <span class="optional">(opcional)</span></label>
+              <span class="multi-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Pode marcar mais de uma alternativa</span>
               <div class="radio-group" data-type="multi">
                 <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Preço"><span>Preço</span></label>
                 <label class="radio-option"><input type="checkbox" name="motivo_outra_escolha" value="Não me identifiquei com a metodologia"><span>Não me identifiquei com a metodologia</span></label>
@@ -439,7 +440,8 @@ html, body { margin: 0; padding: 0; }
           <!-- Pergunta 9 -->
           <div class="step" data-step="9">
             <div class="field" data-field="fatores_importantes">
-              <label>9. Quais são os 3 fatores mais importantes para você ao escolher uma preparação para a revalidação? (escolha até 3)</label>
+              <label>9. Quais são os 3 fatores mais importantes para você ao escolher uma preparação para a revalidação?</label>
+              <span class="multi-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Pode marcar até 3 alternativas</span>
               <div class="radio-group" data-type="multi" data-required="true" data-max="3">
                 <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Preço"><span>Preço</span></label>
                 <label class="radio-option"><input type="checkbox" name="fatores_importantes" value="Professores"><span>Professores</span></label>
@@ -492,6 +494,8 @@ html, body { margin: 0; padding: 0; }
     <div class="wrap">
       <div class="logos">
         <img class="logo-pense" src="https://lp.penserevalida.com/wp-content/uploads/2026/08/logo-pense-dark_1.png" alt="Pense Revalida" width="1601" height="801">
+        <span class="x">E</span>
+        <img class="logo-caveo" src="https://lp.penserevalida.com/wp-content/uploads/2026/09/0e89fdb35c8754a6ce7a909f5adfe455c1b1fca8.png" alt="Caveo" width="1829" height="618">
       </div>
       <span>© 2026 Pense Revalida. Todos os direitos reservados.</span>
     </div>
@@ -524,19 +528,13 @@ html, body { margin: 0; padding: 0; }
 
   // --- Wizard: uma pergunta por vez ---
   var steps = Array.from(form.querySelectorAll('.step'));
-  var totalQuestions = steps.length - 1; // passo 0 (contato) não conta
+  var totalQuestions = steps.length;
   var currentStep = 0;
 
   function updateProgress(){
-    if (currentStep === 0) {
-      progressText.textContent = 'Antes de começar';
-      progressCount.textContent = '';
-      progressFill.style.width = '0%';
-    } else {
-      progressText.textContent = 'Pergunta ' + currentStep + ' de ' + totalQuestions;
-      progressCount.textContent = Math.round((currentStep / totalQuestions) * 100) + '%';
-      progressFill.style.width = (currentStep / totalQuestions * 100) + '%';
-    }
+    progressText.textContent = 'Pergunta ' + (currentStep + 1) + ' de ' + totalQuestions;
+    progressCount.textContent = Math.round(((currentStep + 1) / totalQuestions) * 100) + '%';
+    progressFill.style.width = ((currentStep + 1) / totalQuestions * 100) + '%';
   }
 
   function showStep(index){
@@ -587,23 +585,13 @@ html, body { margin: 0; padding: 0; }
     btn.addEventListener('click', goBack);
   });
 
-  // Avança sozinho em perguntas de escolha única (sem opção "Outro")
-  steps.forEach(function(stepEl){
-    if (stepEl.dataset.advance !== 'auto') return;
-    stepEl.querySelectorAll('input[type=radio]').forEach(function(input){
-      input.addEventListener('change', function(){
-        setTimeout(function(){ goNext(); }, 350);
-      });
-    });
-  });
-
   // Enter em campo de texto avança em vez de enviar o form antes da hora
   form.addEventListener('keydown', function(e){
     if (e.key !== 'Enter' || e.target.tagName !== 'INPUT') return;
     if (currentStep < steps.length - 1) { e.preventDefault(); goNext(); }
   });
 
-  showStep(0);
+  updateProgress();
 
   // --- "Outro: ___" condicional (radio e checkbox) ---
   document.querySelectorAll('.radio-group').forEach(function(group){
@@ -685,11 +673,6 @@ html, body { margin: 0; padding: 0; }
       return;
     }
 
-    var fd = new FormData(form);
-    var nome = fd.get('nome');
-    var whatsapp = fd.get('whatsapp');
-    var email = fd.get('email');
-
     var answers = {};
     QUESTION_KEYS.forEach(function(key){
       var field = form.querySelector('.field[data-field="' + key + '"]');
@@ -704,7 +687,7 @@ html, body { margin: 0; padding: 0; }
     });
 
     var values = [
-      new Date().toISOString(), nome, whatsapp, email,
+      new Date().toISOString(),
       answers.tentativas, answers.empresas_conhecidas, answers.conhecia_pense,
       answers.onde_preparou, answers.empresa_escolhida, answers.motivo_escolha,
       answers.considerou_pense, answers.motivo_outra_escolha,

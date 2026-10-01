@@ -25,10 +25,9 @@
 const SHEET_RESPOSTAS = 'Respostas';
 const SHEET_DASHBOARD = 'Dashboard';
 
-// Mesma ordem de src/lib/surveyFields.ts -> LEAD_FIELDS
-const LEAD_FIELDS = ['Nome completo', 'WhatsApp', 'E-mail'];
+// Pesquisa anônima — sem campos de contato (nome/WhatsApp/e-mail).
 
-// Mesma ordem/labels de src/lib/surveyFields.ts -> QUESTION_FIELDS
+// Mesma ordem/labels do formulário em index.html
 const QUESTIONS = [
   {
     key: 'tentativas',
@@ -54,7 +53,7 @@ const QUESTIONS = [
   {
     key: 'onde_preparou',
     label: '4. Onde você realizou sua preparação principal para a prova?',
-    type: 'single',
+    type: 'multi',
     options: [
       'Curso online especializado em revalidação', 'Curso presencial', 'Mais de um curso/plataforma',
       'Estudei sozinho(a)', 'Grupo de estudos', 'Aulas particulares/professores', 'Material apostilado/PDFs',
@@ -68,7 +67,7 @@ const QUESTIONS = [
   {
     key: 'motivo_escolha',
     label: '6. Qual foi o principal motivo que levou você a escolher essa empresa/solução?',
-    type: 'single',
+    type: 'multi',
     options: [
       'Preço', 'Qualidade do material', 'Metodologia de ensino', 'Professores', 'Aprovação/resultados divulgados',
       'Indicação de amigos/colegas', 'Reputação da empresa', 'Simulados e questões', 'Plataforma/tecnologia',
@@ -115,7 +114,6 @@ const QUESTIONS = [
 
 function HEADER_() {
   var header = ['Data/Hora'];
-  LEAD_FIELDS.forEach(function (l) { header.push(l); });
   QUESTIONS.forEach(function (q) { header.push(q.label); });
   return header;
 }
@@ -146,10 +144,9 @@ function buildDashboard_() {
   dash.getRange('B4').setFormula('=IF(COUNTA(' + SHEET_RESPOSTAS + '!A2:A)=0;"—";INDEX(' + SHEET_RESPOSTAS + '!A2:A;COUNTA(' + SHEET_RESPOSTAS + '!A2:A)))');
 
   var row = 7;
-  var leadColCount = LEAD_FIELDS.length;
 
   QUESTIONS.forEach(function (q, qIdx) {
-    var col = 2 + leadColCount + qIdx; // col 1 = Data/Hora, depois os LEAD_FIELDS, depois as perguntas
+    var col = 2 + qIdx; // col 1 = Data/Hora, depois as perguntas em ordem
     var colLetter = columnToLetter_(col);
 
     dash.getRange(row, 1).setValue((qIdx + 1) + '. ' + q.label).setFontWeight('bold').setWrap(true);
@@ -196,7 +193,7 @@ function buildDashboard_() {
   buildRespondentViewer_(dash, row);
 }
 
-/** Cria, mais abaixo na própria aba Dashboard, um seletor para ver a resposta completa de 1 pessoa. */
+/** Cria, mais abaixo na própria aba Dashboard, um seletor para ver 1 resposta completa (pesquisa é anônima, então a busca é pelo horário do envio). */
 function buildRespondentViewer_(dash, startRow) {
   var ss = SpreadsheetApp.getActive();
   var resp = ss.getSheetByName(SHEET_RESPOSTAS);
@@ -205,12 +202,12 @@ function buildRespondentViewer_(dash, startRow) {
 
   var anchorRow = startRow + 2;
   dash.getRange(anchorRow, 1).setValue('Ver resposta individual').setFontWeight('bold').setFontSize(13);
-  dash.getRange(anchorRow + 1, 1).setValue('Nome do respondente:');
+  dash.getRange(anchorRow + 1, 1).setValue('Selecione pelo Data/Hora do envio:');
 
   var selectorCell = dash.getRange(anchorRow + 1, 2);
   selectorCell.setDataValidation(
     SpreadsheetApp.newDataValidation()
-      .requireValueInRange(resp.getRange('B2:B' + lastRow), true)
+      .requireValueInRange(resp.getRange('A2:A' + lastRow), true)
       .setAllowInvalid(true)
       .build()
   );
@@ -221,7 +218,7 @@ function buildRespondentViewer_(dash, startRow) {
     dash.getRange(r, 1).setValue(label);
     var colLetter = columnToLetter_(i + 1);
     dash.getRange(r, 2).setFormula(
-      '=IFERROR(INDEX(' + SHEET_RESPOSTAS + '!' + colLetter + '2:' + colLetter + ';MATCH(' + selectorA1 + ';' + SHEET_RESPOSTAS + '!$B$2:$B;0));"")'
+      '=IFERROR(INDEX(' + SHEET_RESPOSTAS + '!' + colLetter + '2:' + colLetter + ';MATCH(' + selectorA1 + ';' + SHEET_RESPOSTAS + '!$A$2:$A;0));"")'
     );
   });
 }

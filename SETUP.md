@@ -12,7 +12,7 @@ Planilha: https://docs.google.com/spreadsheets/d/1HU9cehcPPY87iNYj6tnb8rAlAdrlog
    - Nome: `SURVEY_TOKEN`
    - Valor: qualquer string secreta (gere uma senha longa aleatória)
 4. No topo do editor, selecione a função `setup` na lista de funções e clique em **Executar**. Na primeira execução o Google vai pedir autorização de permissões — autorize.
-   - Isso cria as abas **Respostas** (cabeçalho com as 3 perguntas de contato + as 10 perguntas da pesquisa) e **Dashboard** (contagens + gráficos por pergunta + seletor "ver resposta individual").
+   - Isso cria as abas **Respostas** (cabeçalho com as 10 perguntas da pesquisa — anônima, sem nome/contato) e **Dashboard** (contagens + gráficos por pergunta + seletor "ver resposta individual" por Data/Hora).
 5. **Implantar > Nova implantação**:
    - Tipo: **Aplicativo da Web**
    - Executar como: **Eu**
