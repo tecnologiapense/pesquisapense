@@ -144,7 +144,7 @@ function buildDashboard_() {
   dash.getRange('A3').setValue('Total de respostas:');
   dash.getRange('B3').setFormula('=COUNTA(' + SHEET_RESPOSTAS + '!A2:A)').setFontWeight('bold');
   dash.getRange('A4').setValue('Última resposta:');
-  dash.getRange('B4').setFormula('=IFERROR(MAX(' + SHEET_RESPOSTAS + '!A2:A),"—")');
+  dash.getRange('B4').setFormula('=IFERROR(INDEX(' + SHEET_RESPOSTAS + '!A2:A;COUNTA(' + SHEET_RESPOSTAS + '!A2:A));"—")');
 
   var row = 7;
   var leadColCount = LEAD_FIELDS.length;
@@ -169,8 +169,8 @@ function buildDashboard_() {
       dash.getRange(row, 1).setValue(opt);
       var escaped = opt.replace(/"/g, '""');
       var formula = q.type === 'multi'
-        ? '=SUMPRODUCT(--ISNUMBER(SEARCH("' + escaped + '",' + range + ')))'
-        : '=COUNTIF(' + range + ',"' + escaped + '")';
+        ? '=SUMPRODUCT(--ISNUMBER(SEARCH("' + escaped + '";' + range + ')))'
+        : '=COUNTIF(' + range + ';"' + escaped + '")';
       dash.getRange(row, 2).setFormula(formula);
       row += 1;
     });
@@ -219,7 +219,7 @@ function buildRespondentViewer_(dash, startRow) {
     dash.getRange(r, 1).setValue(label);
     var colLetter = columnToLetter_(i + 1);
     dash.getRange(r, 2).setFormula(
-      '=IFERROR(INDEX(' + SHEET_RESPOSTAS + '!' + colLetter + '2:' + colLetter + ',MATCH(' + selectorA1 + ',' + SHEET_RESPOSTAS + '!$B$2:$B,0)),"")'
+      '=IFERROR(INDEX(' + SHEET_RESPOSTAS + '!' + colLetter + '2:' + colLetter + ';MATCH(' + selectorA1 + ';' + SHEET_RESPOSTAS + '!$B$2:$B;0));"")'
     );
   });
 }
