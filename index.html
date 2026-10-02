@@ -159,6 +159,10 @@ html, body { margin: 0; padding: 0; }
 .landing .alert.show{display:flex}
 .landing .alert svg{width:20px;height:20px;flex-shrink:0;margin-top:1px}
 .landing .alert.success{color:#BFF3CB;background:rgba(96,214,118,.12);border-color:rgba(96,214,118,.4)}
+.landing .success-content{display:flex;flex-direction:column;gap:14px;width:100%}
+.landing .btn-whatsapp{background:#25D366;color:#06210F;align-self:flex-start}
+.landing .btn-whatsapp:hover{filter:brightness(1.06);transform:translateY(-2px)}
+.landing .btn-whatsapp svg{width:19px;height:19px}
 .landing .alert.error{color:#FECACA;background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.45)}
 
 .landing .foot{background:var(--navy-950);color:var(--muted-2);padding:34px 0;font-size:13px}
@@ -175,6 +179,9 @@ html, body { margin: 0; padding: 0; }
   .landing .hero p{font-size:16.5px}
   .landing .form-card{padding:28px 20px}
   .landing .btn{width:100%;padding:16px 22px}
+  .landing .hero-cta{text-align:center}
+  .landing .hero-cta .btn{width:auto}
+  .landing .hero-cta .btn svg{display:none}
   .landing .foot .wrap{flex-direction:column;text-align:center}
 }
 </style>
@@ -254,7 +261,13 @@ html, body { margin: 0; padding: 0; }
 
         <div id="alert-success" class="alert success">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
-          <span>Recebemos sua resposta! Obrigado por participar — isso nos ajuda muito a entender melhor essa jornada.</span>
+          <div class="success-content">
+            <span>Recebemos sua resposta! Obrigado por participar — isso nos ajuda muito a entender melhor essa jornada.</span>
+            <a href="https://wa.me/5511971654470?text=Ol%C3%A1%21%20Vim%20pelo%20Pense%20e%20tenho%20d%C3%BAvidas%20sobre%20a%20parceria" target="_blank" rel="noopener" class="btn btn-whatsapp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.46 3.44 1.32 4.95L2.05 22l5.28-1.38a9.9 9.9 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2m0 1.67c2.2 0 4.26.86 5.82 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.32a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.25-8.23m-4.54 4.72c-.16 0-.43.06-.65.3-.23.24-.86.85-.86 2.06s.89 2.39 1.01 2.56c.12.16 1.74 2.78 4.31 3.78 2.13.84 2.57.67 3.03.63.47-.04 1.5-.61 1.72-1.21.21-.59.21-1.1.14-1.21-.06-.1-.23-.16-.47-.28-.24-.12-1.5-.74-1.73-.83-.23-.08-.4-.12-.57.12-.16.24-.65.83-.8 1-.15.16-.3.18-.55.06-.24-.12-1.03-.38-1.97-1.21-.73-.65-1.22-1.46-1.37-1.7-.14-.24-.02-.38.11-.5.11-.11.24-.3.37-.44.12-.15.16-.25.24-.42.08-.16.04-.3-.02-.42-.06-.12-.57-1.37-.78-1.87-.21-.49-.42-.42-.57-.43z"/></svg>
+              Adquira aqui seu bônus
+            </a>
+          </div>
         </div>
         <div id="alert-error" class="alert error">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
