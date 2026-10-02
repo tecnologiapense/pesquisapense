@@ -160,9 +160,9 @@ html, body { margin: 0; padding: 0; }
 .landing .alert svg{width:20px;height:20px;flex-shrink:0;margin-top:1px}
 .landing .alert.success{color:#BFF3CB;background:rgba(96,214,118,.12);border-color:rgba(96,214,118,.4)}
 .landing .success-content{display:flex;flex-direction:column;gap:14px;width:100%}
-.landing .btn-whatsapp{background:#25D366;color:#06210F;align-self:flex-start}
+.landing .btn-whatsapp{background:#25D366;color:#06210F;align-self:center}
 .landing .btn-whatsapp:hover{filter:brightness(1.06);transform:translateY(-2px)}
-.landing .btn-whatsapp svg{width:19px;height:19px}
+.landing .btn-whatsapp svg{width:24px;height:24px;flex-shrink:0}
 .landing .alert.error{color:#FECACA;background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.45)}
 
 .landing .foot{background:var(--navy-950);color:var(--muted-2);padding:34px 0;font-size:13px}
@@ -638,6 +638,16 @@ html, body { margin: 0; padding: 0; }
     return Array.from(group.querySelectorAll('input:checked')).map(function(i){ return i.value; });
   }
 
+  function formatBrasiliaTimestamp(){
+    var parts = new Intl.DateTimeFormat('pt-BR', {
+      timeZone: 'America/Sao_Paulo',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      hour12: false,
+    }).formatToParts(new Date()).reduce(function(acc, p){ acc[p.type] = p.value; return acc; }, {});
+    return parts.year + '-' + parts.month + '-' + parts.day + ' ' + parts.hour + ':' + parts.minute + ':' + parts.second;
+  }
+
   function resolveOther(field, values){
     var otherInput = field.querySelector('.other-text');
     var otherText = otherInput ? otherInput.value.trim() : '';
@@ -700,7 +710,7 @@ html, body { margin: 0; padding: 0; }
     });
 
     var values = [
-      new Date().toISOString(),
+      formatBrasiliaTimestamp(),
       answers.tentativas, answers.empresas_conhecidas, answers.conhecia_pense,
       answers.onde_preparou, answers.empresa_escolhida, answers.motivo_escolha,
       answers.considerou_pense, answers.motivo_outra_escolha,
